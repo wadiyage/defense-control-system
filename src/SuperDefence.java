@@ -7,6 +7,9 @@
  *
  * @author Dell
  */
-public class DefenseObserver {
+public interface SuperDefence {
+    public void clearArea();
     
+    public boolean updateInbox(String text);
 }
+                                                                                                                              

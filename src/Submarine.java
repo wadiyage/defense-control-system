@@ -7,12 +7,12 @@
  *
  * @author Dell
  */
-public class Tank extends javax.swing.JFrame implements SuperDefence {
+public class Submarine extends javax.swing.JFrame implements SuperDefence {
 
     /**
      * Creates new form Helicopter
      */
-    public Tank() {
+    public Submarine() {
         initComponents();
     }
 
@@ -30,9 +30,9 @@ public class Tank extends javax.swing.JFrame implements SuperDefence {
         viewTextArea = new javax.swing.JTextArea();
         messageTextField = new javax.swing.JTextField();
         sendButton = new javax.swing.JButton();
-        redarOperationButton = new javax.swing.JButton();
-        jSlider1 = new javax.swing.JSlider();
-        missileOperationButton = new javax.swing.JButton();
+        tomahawkMissionButton = new javax.swing.JButton();
+        energySlider = new javax.swing.JSlider();
+        sonarOperationButton = new javax.swing.JButton();
         shootButton = new javax.swing.JButton();
         areaClearedLabel = new javax.swing.JLabel();
         soldierCountLabel = new javax.swing.JLabel();
@@ -40,7 +40,10 @@ public class Tank extends javax.swing.JFrame implements SuperDefence {
         positionCheckBox = new javax.swing.JCheckBox();
         soldierCountSpinner = new javax.swing.JSpinner();
         ammoCountSpinner = new javax.swing.JSpinner();
-        rotateShootingButton = new javax.swing.JButton();
+        trident2MissileButton = new javax.swing.JButton();
+        oxygenSlider = new javax.swing.JSlider();
+        oxygenLabel = new javax.swing.JLabel();
+        energyLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -51,11 +54,11 @@ public class Tank extends javax.swing.JFrame implements SuperDefence {
 
         sendButton.setText("Send");
 
-        redarOperationButton.setText("Redar Operation");
+        tomahawkMissionButton.setText("Tomahawk Mission");
 
-        jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
+        energySlider.setOrientation(javax.swing.JSlider.VERTICAL);
 
-        missileOperationButton.setText("Missile Operation");
+        sonarOperationButton.setText("Sonar Operation");
 
         shootButton.setText("Shoot");
 
@@ -67,7 +70,13 @@ public class Tank extends javax.swing.JFrame implements SuperDefence {
 
         positionCheckBox.setText("Position");
 
-        rotateShootingButton.setText("Rotate Shooting");
+        trident2MissileButton.setText("Trident-2 Missile");
+
+        oxygenSlider.setOrientation(javax.swing.JSlider.VERTICAL);
+
+        oxygenLabel.setText("Oxygen");
+
+        energyLabel.setText("Energy");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -81,12 +90,12 @@ public class Tank extends javax.swing.JFrame implements SuperDefence {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(shootButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(missileOperationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(redarOperationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(sonarOperationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tomahawkMissionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(areaClearedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(193, 193, 193)
-                                .addComponent(rotateShootingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(trident2MissileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(112, 112, 112)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(positionCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -104,54 +113,75 @@ public class Tank extends javax.swing.JFrame implements SuperDefence {
                             .addComponent(messageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(sendButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(energySlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(energyLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(oxygenSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(oxygenLabel))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(10, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(soldierCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(soldierCountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ammoCountSpinner)
+                                    .addComponent(ammoCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(positionCheckBox)
+                                .addGap(6, 6, 6))
+                            .addComponent(tomahawkMissionButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(areaClearedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(shootButton)
+                                    .addComponent(sonarOperationButton))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(trident2MissileButton)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(viewScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(soldierCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(soldierCountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ammoCountSpinner)
-                            .addComponent(ammoCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(positionCheckBox)
-                        .addGap(6, 6, 6))
-                    .addComponent(redarOperationButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(areaClearedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(messageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sendButton)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(shootButton)
-                            .addComponent(missileOperationButton))
+                            .addComponent(oxygenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(energyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rotateShootingButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(viewScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(messageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sendButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(oxygenSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(energySlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jSlider1.setBackground(new java.awt.Color(30, 30, 30));
-        jSlider1.setForeground(new java.awt.Color(0,120,215));
-        jSlider1.setPaintTicks(true);
-        jSlider1.setPaintLabels(true);
-        jSlider1.setMajorTickSpacing(20);
-        jSlider1.setMinorTickSpacing(10);
+        energySlider.setBackground(new java.awt.Color(30, 30, 30));
+        energySlider.setForeground(new java.awt.Color(0,120,215));
+        energySlider.setPaintTicks(true);
+        energySlider.setPaintLabels(true);
+        energySlider.setMajorTickSpacing(20);
+        energySlider.setMinorTickSpacing(10);
+        energySlider.setBackground(new java.awt.Color(30, 30, 30));
+        energySlider.setForeground(new java.awt.Color(0,120,215));
+        energySlider.setPaintTicks(true);
+        energySlider.setPaintLabels(true);
+        energySlider.setMajorTickSpacing(20);
+        energySlider.setMinorTickSpacing(10);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,17 +208,20 @@ public class Tank extends javax.swing.JFrame implements SuperDefence {
     private javax.swing.JLabel ammoCountLabel;
     private javax.swing.JSpinner ammoCountSpinner;
     private javax.swing.JLabel areaClearedLabel;
+    private javax.swing.JLabel energyLabel;
+    private javax.swing.JSlider energySlider;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSlider jSlider1;
     private javax.swing.JTextField messageTextField;
-    private javax.swing.JButton missileOperationButton;
+    private javax.swing.JLabel oxygenLabel;
+    private javax.swing.JSlider oxygenSlider;
     private javax.swing.JCheckBox positionCheckBox;
-    private javax.swing.JButton redarOperationButton;
-    private javax.swing.JButton rotateShootingButton;
     private javax.swing.JButton sendButton;
     private javax.swing.JButton shootButton;
     private javax.swing.JLabel soldierCountLabel;
     private javax.swing.JSpinner soldierCountSpinner;
+    private javax.swing.JButton sonarOperationButton;
+    private javax.swing.JButton tomahawkMissionButton;
+    private javax.swing.JButton trident2MissileButton;
     private javax.swing.JScrollPane viewScrollPane;
     private javax.swing.JTextArea viewTextArea;
     // End of variables declaration//GEN-END:variables

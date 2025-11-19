@@ -15,7 +15,11 @@ public interface DefenceObserver  {
     public boolean addDefenceObserver(SuperDefence defenceObserver);
     public boolean removeDefenceObserver(SuperDefence defenceObserver);
     
-    public void notifyObservers();
+    public void notifyObservers(String message);
+    
+    public void displayMessagesFromHelicopter(String message);
+    public void displayMessagesFromTank(String message);
+    public void displayMessagesFromSubmarine(String message);
     
     
 }

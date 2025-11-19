@@ -8,12 +8,15 @@
  * @author Dell
  */
 public class Helicopter extends javax.swing.JFrame implements SuperDefence {
-
+    private MainController mainController;
     /**
      * Creates new form Helicopter
      */
-    public Helicopter() {
+    public Helicopter(MainController mainConroller) {
         initComponents();
+        
+        this.mainController=mainConroller;
+        messageTextField.requestFocus();
     }
 
     /**
@@ -48,7 +51,18 @@ public class Helicopter extends javax.swing.JFrame implements SuperDefence {
         viewTextArea.setRows(5);
         viewScrollPane.setViewportView(viewTextArea);
 
+        messageTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                messageTextFieldActionPerformed(evt);
+            }
+        });
+
         sendButton.setText("Send");
+        sendButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendButtonActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Laser Operation");
 
@@ -160,12 +174,30 @@ public class Helicopter extends javax.swing.JFrame implements SuperDefence {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void messageTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_messageTextFieldActionPerformed
+        sendButton.requestFocus();
+        sendButton.doClick();
+    }//GEN-LAST:event_messageTextFieldActionPerformed
+
+    private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
+        String message = messageTextField.getText();
+        mainController.displayMessagesFromHelicopter(message);
+    }//GEN-LAST:event_sendButtonActionPerformed
+
     @Override
     public void clearArea() {
         areaClearedLabel.setText("Area Cleared");
-        throw new UnsupportedOperationException("Not supported yet."); 
     }
-    
+
+    @Override
+    public void defaultClearArea() {
+        areaClearedLabel.setText("Area Not Cleared");
+    }
+
+    @Override
+    public void updateInbox(String message) {
+        viewTextArea.append("Main: "+message+"\n");
+    }
     
     
     

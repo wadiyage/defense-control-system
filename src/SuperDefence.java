@@ -9,7 +9,8 @@
  */
 public interface SuperDefence {
     public void clearArea();
+    public void defaultClearArea();
     
-    public boolean updateInbox(String text);
+    public void updateInbox(String message);
 }
                                                                                                                               

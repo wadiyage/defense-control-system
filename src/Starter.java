@@ -15,17 +15,17 @@ public class Starter {
         main.addDefenceObserver(h1);
         h1.setVisible(true);
         
-        Helicopter h2 = new Helicopter(main);
-        main.addDefenceObserver(h2);
-        h2.setVisible(true);
-        
-        Tank t1 = new Tank(main);
-        main.addDefenceObserver(t1);
-        t1.setVisible(true);
-        
-        Submarine s1 = new Submarine(main);
-        main.addDefenceObserver(s1);
-        s1.setVisible(true);
+//        Helicopter h2 = new Helicopter(main);
+//        main.addDefenceObserver(h2);
+//        h2.setVisible(true);
+//        
+//        Tank t1 = new Tank(main);
+//        main.addDefenceObserver(t1);
+//        t1.setVisible(true);
+//        
+//        Submarine s1 = new Submarine(main);
+//        main.addDefenceObserver(s1);
+//        s1.setVisible(true);
         
         main.setVisible(true);
     }

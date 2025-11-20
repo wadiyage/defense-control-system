@@ -9,6 +9,10 @@
  */
 public class Helicopter extends javax.swing.JFrame implements SuperDefence {
     private MainController mainController;
+    
+    private int remainAmmoCount;
+    private int defaultMissileCount;
+    private int altitude;
     /**
      * Creates new form Helicopter
      */
@@ -17,6 +21,40 @@ public class Helicopter extends javax.swing.JFrame implements SuperDefence {
         
         this.mainController=mainConroller;
         messageTextField.requestFocus();
+        
+        remainAmmoCount = 30;
+        ammoCountSpinner.setValue(remainAmmoCount);
+        
+        defaultMissileCount = 5;
+        
+        setupAltitudeSlider();
+        setupAltitudeListener();
+        
+    }
+    
+    private void setupAltitudeSlider() {
+        altitudeSlider.setMinimum(0);
+        altitudeSlider.setMaximum(5000);
+        altitudeSlider.setMajorTickSpacing(1000);
+        altitudeSlider.setMinorTickSpacing(100);
+        altitudeSlider.setPaintTicks(true);
+        altitudeSlider.setPaintLabels(true);
+        altitudeSlider.setValue(0); // default ground level
+    }
+    
+    private void setupAltitudeListener() {
+        altitudeSlider.addChangeListener(e -> {
+            altitude = altitudeSlider.getValue();
+            
+            if(altitude>=0 && altitude<1500) {
+                viewTextArea.append("Laser fired at low altitude — high accuracy.\n");
+            }
+            if(altitude>=3500 && altitude<=5000) {
+                viewTextArea.append("Laser fired at high altitude — reduced precision due to wind.\n");
+            }
+            altitudeLabel.setText("Altitude: "+altitude+"m");
+            mainController.changeAltitude(altitude);
+        });
     }
 
     /**
@@ -33,8 +71,8 @@ public class Helicopter extends javax.swing.JFrame implements SuperDefence {
         viewTextArea = new javax.swing.JTextArea();
         messageTextField = new javax.swing.JTextField();
         sendButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jSlider1 = new javax.swing.JSlider();
+        laserOperationButton = new javax.swing.JButton();
+        altitudeSlider = new javax.swing.JSlider();
         missileOperationButton = new javax.swing.JButton();
         shootButton = new javax.swing.JButton();
         areaClearedLabel = new javax.swing.JLabel();
@@ -43,6 +81,7 @@ public class Helicopter extends javax.swing.JFrame implements SuperDefence {
         positionCheckBox = new javax.swing.JCheckBox();
         soldierCountSpinner = new javax.swing.JSpinner();
         ammoCountSpinner = new javax.swing.JSpinner();
+        altitudeLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -64,13 +103,28 @@ public class Helicopter extends javax.swing.JFrame implements SuperDefence {
             }
         });
 
-        jButton2.setText("Laser Operation");
+        laserOperationButton.setText("Laser Operation");
+        laserOperationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                laserOperationButtonActionPerformed(evt);
+            }
+        });
 
-        jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
+        altitudeSlider.setOrientation(javax.swing.JSlider.VERTICAL);
 
         missileOperationButton.setText("Missile Operation");
+        missileOperationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                missileOperationButtonActionPerformed(evt);
+            }
+        });
 
         shootButton.setText("Shoot");
+        shootButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shootButtonActionPerformed(evt);
+            }
+        });
 
         areaClearedLabel.setText("Area Not Cleared");
 
@@ -87,41 +141,46 @@ public class Helicopter extends javax.swing.JFrame implements SuperDefence {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(viewScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(messageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(sendButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(shootButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(missileOperationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(laserOperationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(areaClearedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(112, 112, 112)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(positionCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(112, 112, 112)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(soldierCountLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ammoCountLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(soldierCountSpinner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ammoCountSpinner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(viewScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(messageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(sendButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(positionCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(soldierCountLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ammoCountLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(soldierCountSpinner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ammoCountSpinner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
+                                .addComponent(altitudeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(altitudeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(soldierCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(soldierCountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -131,15 +190,16 @@ public class Helicopter extends javax.swing.JFrame implements SuperDefence {
                             .addComponent(ammoCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(positionCheckBox)
-                        .addGap(6, 6, 6))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(altitudeLabel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(areaClearedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(shootButton)
                             .addComponent(missileOperationButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
+                        .addComponent(laserOperationButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(viewScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -149,16 +209,16 @@ public class Helicopter extends javax.swing.JFrame implements SuperDefence {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(altitudeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jSlider1.setBackground(new java.awt.Color(30, 30, 30));
-        jSlider1.setForeground(new java.awt.Color(0,120,215));
-        jSlider1.setPaintTicks(true);
-        jSlider1.setPaintLabels(true);
-        jSlider1.setMajorTickSpacing(20);
-        jSlider1.setMinorTickSpacing(10);
+        altitudeSlider.setBackground(new java.awt.Color(30, 30, 30));
+        altitudeSlider.setForeground(new java.awt.Color(0,120,215));
+        altitudeSlider.setPaintTicks(true);
+        altitudeSlider.setPaintLabels(true);
+        altitudeSlider.setMajorTickSpacing(20);
+        altitudeSlider.setMinorTickSpacing(10);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -184,6 +244,44 @@ public class Helicopter extends javax.swing.JFrame implements SuperDefence {
         mainController.displayMessagesFromHelicopter(message);
     }//GEN-LAST:event_sendButtonActionPerformed
 
+    private void shootButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shootButtonActionPerformed
+        String message="";
+        if(remainAmmoCount<=0) {
+            message = "Cannot shoot: No ammo remaining.";
+            viewTextArea.append(message+"\n");
+            mainController.notifyControlPanel(message);
+        } else {
+            remainAmmoCount--;
+            updateAmmoCount(remainAmmoCount);
+            
+            message = "Heli: Fired a shot. Ammo remaining: ";
+            // viewTextArea.append(message+""+remainAmmoCount+"\n");
+            mainController.notifyObservers(message, remainAmmoCount);
+            mainController.notifyControlPanel(message, remainAmmoCount);
+        }
+    }//GEN-LAST:event_shootButtonActionPerformed
+
+    private void missileOperationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_missileOperationButtonActionPerformed
+        String message="";
+        if(defaultMissileCount<=0) {
+            message = "Attempted missile fire but has no missiles left.";
+            viewTextArea.append(message+"\n");
+            mainController.notifyControlPanel(message);
+        } else {
+            defaultMissileCount--;
+            
+            message = "Heli: Launched a missile! Remaining missiles: ";
+            // viewTextArea.append(message+""+defaultMissileCount+"\n");
+            mainController.notifyObservers(message, defaultMissileCount);
+            mainController.notifyControlPanel(message, defaultMissileCount);
+        }
+    }//GEN-LAST:event_missileOperationButtonActionPerformed
+
+    private void laserOperationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laserOperationButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_laserOperationButtonActionPerformed
+
+    
     @Override
     public void clearArea() {
         areaClearedLabel.setText("Area Cleared");
@@ -196,19 +294,29 @@ public class Helicopter extends javax.swing.JFrame implements SuperDefence {
 
     @Override
     public void updateInbox(String message) {
-        viewTextArea.append("Main: "+message+"\n");
+        viewTextArea.append(message+"\n");
+    }
+
+    @Override
+    public void updateInbox(String message, int remain) {
+        viewTextArea.append(message+""+remain+"\n");
     }
     
     
     
+    private void updateAmmoCount(int remainAmmoCount) {
+        ammoCountSpinner.setValue(remainAmmoCount);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel altitudeLabel;
+    private javax.swing.JSlider altitudeSlider;
     private javax.swing.JLabel ammoCountLabel;
     private javax.swing.JSpinner ammoCountSpinner;
     private javax.swing.JLabel areaClearedLabel;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSlider jSlider1;
+    private javax.swing.JButton laserOperationButton;
     private javax.swing.JTextField messageTextField;
     private javax.swing.JButton missileOperationButton;
     private javax.swing.JCheckBox positionCheckBox;

@@ -12,5 +12,6 @@ public interface SuperDefence {
     public void defaultClearArea();
     
     public void updateInbox(String message);
+    public void updateInbox(String message, int remain);
 }
                                                                                                                               

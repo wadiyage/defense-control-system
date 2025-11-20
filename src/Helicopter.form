@@ -42,33 +42,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="shootButton" min="-2" pref="175" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="missileOperationButton" min="-2" pref="175" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jButton2" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
-                              <Component id="areaClearedLabel" min="-2" pref="370" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="positionCheckBox" min="-2" pref="87" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="soldierCountLabel" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
-                                      <Component id="ammoCountLabel" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="soldierCountSpinner" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ammoCountSpinner" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                           <Component id="viewScrollPane" min="-2" pref="650" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="messageTextField" min="-2" pref="524" max="-2" attributes="0"/>
@@ -76,9 +50,43 @@
                               <Component id="sendButton" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="shootButton" min="-2" pref="175" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="missileOperationButton" min="-2" pref="175" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="laserOperationButton" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                              <Component id="areaClearedLabel" min="-2" pref="370" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="positionCheckBox" min="-2" pref="87" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="soldierCountLabel" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                                              <Component id="ammoCountLabel" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="soldierCountSpinner" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ammoCountSpinner" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace pref="180" max="32767" attributes="0"/>
+                                  <Component id="altitudeLabel" min="-2" pref="125" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="51" max="32767" attributes="0"/>
-                  <Component id="jSlider1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="42" max="32767" attributes="0"/>
+                  <Component id="altitudeSlider" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -87,8 +95,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="soldierCountLabel" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                               <Component id="soldierCountSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -100,9 +108,10 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="positionCheckBox" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="altitudeLabel" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" attributes="0">
                           <Component id="areaClearedLabel" min="-2" pref="54" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -110,7 +119,7 @@
                               <Component id="missileOperationButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="laserOperationButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -124,7 +133,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="jSlider1" min="-2" pref="350" max="-2" attributes="0"/>
+                  <Component id="altitudeSlider" min="-2" pref="350" max="-2" attributes="0"/>
                   <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -159,17 +168,20 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sendButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="laserOperationButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Laser Operation"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="laserOperationButtonActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JSlider" name="jSlider1">
+        <Component class="javax.swing.JSlider" name="altitudeSlider">
           <Properties>
             <Property name="orientation" type="int" value="1"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jSlider1.setBackground(new java.awt.Color(30, 30, 30));&#xa;jSlider1.setForeground(new java.awt.Color(0,120,215));&#xa;jSlider1.setPaintTicks(true);&#xa;jSlider1.setPaintLabels(true);&#xa;jSlider1.setMajorTickSpacing(20);&#xa;jSlider1.setMinorTickSpacing(10);"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="altitudeSlider.setBackground(new java.awt.Color(30, 30, 30));&#xa;altitudeSlider.setForeground(new java.awt.Color(0,120,215));&#xa;altitudeSlider.setPaintTicks(true);&#xa;altitudeSlider.setPaintLabels(true);&#xa;altitudeSlider.setMajorTickSpacing(20);&#xa;altitudeSlider.setMinorTickSpacing(10);"/>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Helicopter_jSlider1"/>
           </AuxValues>
         </Component>
@@ -177,11 +189,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Missile Operation"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="missileOperationButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="shootButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Shoot"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="shootButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="areaClearedLabel">
           <Properties>
@@ -206,6 +224,8 @@
         <Component class="javax.swing.JSpinner" name="soldierCountSpinner">
         </Component>
         <Component class="javax.swing.JSpinner" name="ammoCountSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="altitudeLabel">
         </Component>
       </SubComponents>
     </Container>

@@ -204,6 +204,11 @@ public class Tank extends javax.swing.JFrame implements SuperDefence {
     public void updateInbox(String message) {
         viewTextArea.append("Main: "+message+"\n");
     }
+
+    @Override
+    public void updateInbox(String message, int remain) {
+        viewTextArea.append(message+""+remain+"\n");
+    }
     
     
     

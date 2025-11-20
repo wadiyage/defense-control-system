@@ -59,12 +59,10 @@ public class MainController extends javax.swing.JFrame implements DefenceObserve
         jLabel7 = new javax.swing.JLabel();
         inputScrollPane = new javax.swing.JScrollPane();
         inputTextArea = new javax.swing.JTextArea();
-        heliInboxScrollPane = new javax.swing.JScrollPane();
-        heliInboxTextPane = new javax.swing.JTextArea();
-        tankInboxScrollPane = new javax.swing.JScrollPane();
-        tankInboxTextArea = new javax.swing.JTextArea();
-        subInboxScrollPane = new javax.swing.JScrollPane();
-        subInboxTextArea = new javax.swing.JTextArea();
+        displayScrollPane = new javax.swing.JScrollPane();
+        displayTextPane = new javax.swing.JTextArea();
+        altitudeLabel = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -117,26 +115,20 @@ public class MainController extends javax.swing.JFrame implements DefenceObserve
         });
         inputScrollPane.setViewportView(inputTextArea);
 
-        heliInboxTextPane.setColumns(20);
-        heliInboxTextPane.setRows(5);
-        heliInboxScrollPane.setViewportView(heliInboxTextPane);
+        displayTextPane.setColumns(20);
+        displayTextPane.setRows(5);
+        displayScrollPane.setViewportView(displayTextPane);
 
-        tankInboxTextArea.setColumns(20);
-        tankInboxTextArea.setRows(5);
-        tankInboxScrollPane.setViewportView(tankInboxTextArea);
-
-        subInboxTextArea.setColumns(20);
-        subInboxTextArea.setRows(5);
-        subInboxScrollPane.setViewportView(subInboxTextArea);
+        jLabel8.setText("Altitude");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -144,50 +136,46 @@ public class MainController extends javax.swing.JFrame implements DefenceObserve
                                 .addComponent(sendPrivateCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20))
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(defenceSelectionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addComponent(collectInfoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(areaClearCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(sendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(displayScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(defenceSelectionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(collectInfoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jSlider1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(sendButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(42, 42, 42))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(areaClearCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(64, 64, 64))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(inputScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(heliInboxScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tankInboxScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(subInboxScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(altitudeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(185, 185, 185)
+                                .addComponent(inputScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(defenceSelectionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(collectInfoButton)
@@ -212,14 +200,15 @@ public class MainController extends javax.swing.JFrame implements DefenceObserve
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sendPrivateCheckBox)
                     .addComponent(sendButton))
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(altitudeLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tankInboxScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(heliInboxScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(subInboxScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addComponent(displayScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -252,7 +241,7 @@ public class MainController extends javax.swing.JFrame implements DefenceObserve
                     for(SuperDefence defenceObserver: defenceObserverList) {
                         if(defenceObserver instanceof Helicopter) {
                             System.out.println("Selected Value: "+selectedDefenceConvertingAsString);
-                            defenceObserver.updateInbox(message);
+                            defenceObserver.updateInbox("Main: "+message);
                         }
                     }
                 } 
@@ -260,7 +249,7 @@ public class MainController extends javax.swing.JFrame implements DefenceObserve
                     for(SuperDefence defenceObserver: defenceObserverList) {
                         if(defenceObserver instanceof Tank) {
                             System.out.println("Selected Value: "+selectedDefenceConvertingAsString);
-                            defenceObserver.updateInbox(message);
+                            defenceObserver.updateInbox("Main: "+message);
                         }
                     }
                 } 
@@ -268,14 +257,14 @@ public class MainController extends javax.swing.JFrame implements DefenceObserve
                     for(SuperDefence defenceObserver: defenceObserverList) {
                         if(defenceObserver instanceof Submarine) {
                             System.out.println("Selected Value: "+selectedDefenceConvertingAsString);
-                            defenceObserver.updateInbox(message);
+                            defenceObserver.updateInbox("Main: "+message);
                         }
                     }
                 } 
                 
             }
         } else {
-            notifyObservers(message);
+            notifyObservers("Main: "+message);
         }
     }//GEN-LAST:event_sendButtonActionPerformed
 
@@ -302,11 +291,12 @@ public class MainController extends javax.swing.JFrame implements DefenceObserve
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel altitudeLabel;
     private javax.swing.JCheckBox areaClearCheckBox;
     private javax.swing.JButton collectInfoButton;
     private javax.swing.JComboBox<String> defenceSelectionComboBox;
-    private javax.swing.JScrollPane heliInboxScrollPane;
-    private javax.swing.JTextArea heliInboxTextPane;
+    private javax.swing.JScrollPane displayScrollPane;
+    private javax.swing.JTextArea displayTextPane;
     private javax.swing.JScrollPane inputScrollPane;
     private javax.swing.JTextArea inputTextArea;
     private javax.swing.JLabel jLabel1;
@@ -316,14 +306,11 @@ public class MainController extends javax.swing.JFrame implements DefenceObserve
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JButton sendButton;
     private javax.swing.JCheckBox sendPrivateCheckBox;
-    private javax.swing.JScrollPane subInboxScrollPane;
-    private javax.swing.JTextArea subInboxTextArea;
-    private javax.swing.JScrollPane tankInboxScrollPane;
-    private javax.swing.JTextArea tankInboxTextArea;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -343,23 +330,47 @@ public class MainController extends javax.swing.JFrame implements DefenceObserve
         }
     }
 
+    @Override
+    public void notifyObservers(String message, int remain) {
+        for (SuperDefence defenceObserver : defenceObserverList) {
+            defenceObserver.updateInbox(message, remain);
+        }
+    }
+    
+    
+
     /**
      *
      * @param message
      */
     @Override
     public void displayMessagesFromHelicopter(String message) {
-        heliInboxTextPane.append("Heli: "+message+"\n");
+        displayTextPane.append("Heli: "+message+"\n");
     }
 
     @Override
     public void displayMessagesFromTank(String message) {
-        tankInboxTextArea.setText("Tank: "+message+"\n");
+        displayTextPane.append("Tank: "+message+"\n");
     }
 
     @Override
     public void displayMessagesFromSubmarine(String message) {
-        subInboxTextArea.setText("Sub: "+message+"\n");
+        displayTextPane.append("Sub: "+message+"\n");
+    }
+
+    @Override
+    public void notifyControlPanel(String message) {
+        displayTextPane.append(message+"\n");
+    }
+
+    @Override
+    public void notifyControlPanel(String message, int remain) {
+        displayTextPane.append(message+""+remain+"\n");
+    }
+
+    @Override
+    public void changeAltitude(int altitude) {
+        altitudeLabel.setText(altitude+"m");
     }
     
     
